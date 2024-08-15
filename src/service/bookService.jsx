@@ -39,10 +39,10 @@ export const addBookService = async (params) => {
   }
 };
 
-export const updateBook = async (params) => {
+export const updateBookService = async (params) => {
   try {
     const res = await instance.put(
-      `${envCons.baseUrl}/api/book/update-book`,
+      `${envCons.baseUrl}/api/book/update-book/${params.id}`,
       params
     );
     const data = res.data;

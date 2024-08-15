@@ -1,12 +1,12 @@
 import Breadcrumb from "../../components/Breadcrumbs/Breadcrumb";
-import TableOne from "../../components/Tables/TableOne";
+import TableBook from "../../components/Tables/TableBook";
 
 const Books = () => {
   return (
     <>
       <Breadcrumb pageName="Books" />
       <div className="flex flex-col gap-10">
-        <TableOne />
+        <TableBook />
       </div>
     </>
   );

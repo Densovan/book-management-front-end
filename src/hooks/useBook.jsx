@@ -3,6 +3,7 @@ import {
   GetBookService,
   addBookService,
   deleteBookService,
+  updateBookService,
 } from "../service/bookService";
 
 export const useAddBook = () => {
@@ -79,6 +80,30 @@ export const useDeleteBook = () => {
   };
   return {
     deleteBook,
+    loading,
+    error,
+  };
+};
+
+export const useUpdateBook = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const updateBook = async (params) => {
+    setLoading(true);
+    setError(null);
+    console.log(params, "==para,");
+    try {
+      const updateBook = await updateBookService(params);
+      return updateBook;
+    } catch (error) {
+      setError(error);
+      throw error;
+    } finally {
+      setLoading(false);
+    }
+  };
+  return {
+    updateBook,
     loading,
     error,
   };
