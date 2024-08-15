@@ -25,6 +25,7 @@
 // hooks/useAuth.js
 import React, { useState } from "react";
 import { LoginService } from "../service/authService"; // Correct import
+import { addUserService, GetUserService } from "../service/userService";
 
 export const useAuth = () => {
   const [loading, setLoading] = useState(false);
