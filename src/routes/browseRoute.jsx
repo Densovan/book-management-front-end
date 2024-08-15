@@ -9,6 +9,7 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import Dashboard from "../pages/dashbaord";
 import Books from "../pages/book";
 import User from "../pages/user";
+import Member from "../pages/member";
 import NotfoundPage from "../pages/notFountPage";
 
 const errorElement = <ErrorPage />;
@@ -51,6 +52,10 @@ export const browseRoute = createBrowserRouter([
       {
         path: webRoutes.user,
         element: <User />,
+      },
+      {
+        path: webRoutes.member,
+        element: <Member />,
       },
     ],
   },

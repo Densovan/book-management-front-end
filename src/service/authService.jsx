@@ -11,12 +11,12 @@
 // };
 
 import instance from "../utils/api";
+import { envCons } from "../utils/env";
 
 export const LoginService = async (params) => {
-  console.log(params, "===params");
   try {
     const res = await instance.post(
-      "http://localhost:8080/api/auth/login",
+      `${envCons.baseUrl}/api/auth/login`,
       params
     ); // Use relative URL
     const data = res.data;
