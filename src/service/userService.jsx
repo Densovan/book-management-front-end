@@ -67,3 +67,13 @@ export const deleteUserService = async (params) => {
     console.error("GetBooks failed:", error.response?.data || error.message);
   }
 };
+
+export const getProfileService = async (params) => {
+  try {
+    const res = await instance.get(`${envCons.baseUrl}/api/auth/get`);
+    const data = res.data;
+    return data;
+  } catch (error) {
+    console.error("GetBooks failed:", error.response?.data || error.message);
+  }
+};

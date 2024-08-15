@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { login } = useAuth(); // Destructure only the login function
   const [formData, setFormData] = useState({
     email: "",
@@ -41,6 +43,8 @@ const Login = () => {
       await login(payload).then((res) => {
         localStorage.setItem("token", res.token);
       });
+
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
       setError(

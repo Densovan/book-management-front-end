@@ -3,6 +3,7 @@ import {
   GetUserService,
   addUserService,
   updateUserService,
+  getProfileService,
 } from "../service/userService";
 export const useAddUser = () => {
   const [loading, setLoading] = useState(false);
@@ -75,4 +76,31 @@ export const useGetUsers = (shouldRefetch = false) => {
     users,
     refetch: fetchUsers, // Expose the refetch function
   };
+};
+
+export const useGetProfile = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const userData = await getProfileService();
+        setUser(userData);
+      } catch (error) {
+        console.error(
+          "Failed to fetch profile:",
+          error.response?.data || error.message
+        );
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  return { user, loading, error };
 };
