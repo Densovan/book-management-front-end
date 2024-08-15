@@ -4,5 +4,5 @@ export const webRoutes = {
   dashboard: "/dashboard",
   book: "/books",
   login: "/login",
-  member: "/member",
+  bookIssue: "/book-issue",
 };

@@ -54,7 +54,7 @@ export const browseRoute = createBrowserRouter([
         element: <User />,
       },
       {
-        path: webRoutes.member,
+        path: webRoutes.bookIssue,
         element: <Member />,
       },
     ],
