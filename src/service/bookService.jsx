@@ -4,7 +4,7 @@ import { envCons } from "../utils/env";
 export const GetBookService = async (params) => {
   try {
     const res = await instance.get(
-      `${envCons.baseUrl}/api/book/all-books`,
+      `${envCons.baseUrl}/api/book/all-books?page=1&limit=100`,
       params
     );
     const data = res.data;

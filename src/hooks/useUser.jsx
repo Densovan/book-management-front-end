@@ -47,23 +47,30 @@ export const useUpdateUser = () => {
   return { updateUser, loading, error };
 };
 
-export const useGetUsers = (shouldRefetch = false) => {
+export const useGetUsers = ({ currentPage, shouldRefetch = false }) => {
+  console.log(currentPage, "==page==");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [users, setUsers] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const [pages, setPage] = useState(0);
 
   // Function to fetch books
   const fetchUsers = useCallback(async () => {
     setLoading(true);
     try {
-      const userResponse = await GetUserService();
+      const userResponse = await GetUserService(currentPage);
       setUsers(userResponse.data);
+      setTotalCount(userResponse.meta.total);
+      setTotalPages(userResponse.meta.totalPages);
+      setPage(userResponse.meta.page);
     } catch (error) {
       setError("Failed to fetch books");
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [currentPage]);
 
   // Effect to fetch books when the component mounts or when shouldRefetch changes
   useEffect(() => {
@@ -74,6 +81,9 @@ export const useGetUsers = (shouldRefetch = false) => {
     loading,
     error,
     users,
+    totalCount,
+    totalPages,
+    pages,
     refetch: fetchUsers, // Expose the refetch function
   };
 };

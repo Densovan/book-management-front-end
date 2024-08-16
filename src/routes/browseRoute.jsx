@@ -9,7 +9,7 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import Dashboard from "../pages/dashbaord";
 import Books from "../pages/book";
 import User from "../pages/user";
-import Member from "../pages/member";
+import BookIssue from "../pages/bookIssue";
 import NotfoundPage from "../pages/notFountPage";
 
 const errorElement = <ErrorPage />;
@@ -55,7 +55,7 @@ export const browseRoute = createBrowserRouter([
       },
       {
         path: webRoutes.bookIssue,
-        element: <Member />,
+        element: <BookIssue />,
       },
     ],
   },

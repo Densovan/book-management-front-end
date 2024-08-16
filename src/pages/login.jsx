@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const isLogin = localStorage.getItem("token");
   const navigate = useNavigate();
   const { login } = useAuth(); // Destructure only the login function
   const [formData, setFormData] = useState({
@@ -58,6 +59,12 @@ const Login = () => {
   // if (localStorage.getItem("token")) {
   //   return <Navigate to={webRoutes.dashboard} replace />;
   // }
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/dashboard");
+    }
+  }, [isLogin]);
 
   return (
     <>

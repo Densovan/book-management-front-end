@@ -4,7 +4,6 @@ import ClickOutside from "../../components/ClickOutside";
 import UserOne from "../../images/user/user-01.png";
 
 const DropdownUser = ({ data }) => {
-  console.log(data, "===user");
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const logout = () => {
@@ -52,7 +51,7 @@ const DropdownUser = ({ data }) => {
         <div
           className={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark`}
         >
-          <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
+          {/* <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
             <li>
               <Link
                 to="/profile"
@@ -124,12 +123,12 @@ const DropdownUser = ({ data }) => {
                 Account Settings
               </Link>
             </li>
-          </ul>
+          </ul> */}
           <button
             onClick={logout}
             className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
           >
-            <svg
+            {/* <svg
               className="fill-current"
               width="22"
               height="22"
@@ -145,7 +144,7 @@ const DropdownUser = ({ data }) => {
                 d="M6.05001 11.7563H12.2031C12.6156 11.7563 12.9594 11.4125 12.9594 11C12.9594 10.5875 12.6156 10.2438 12.2031 10.2438H6.08439L8.21564 8.07813C8.52501 7.76875 8.52501 7.2875 8.21564 6.97812C7.90626 6.66875 7.42501 6.66875 7.11564 6.97812L3.67814 10.4844C3.36876 10.7938 3.36876 11.275 3.67814 11.5844L7.11564 15.0906C7.25314 15.2281 7.45939 15.3312 7.66564 15.3312C7.87189 15.3312 8.04376 15.2625 8.21564 15.125C8.52501 14.8156 8.52501 14.3344 8.21564 14.025L6.05001 11.7563Z"
                 fill=""
               />
-            </svg>
+            </svg> */}
             Log Out
           </button>
         </div>

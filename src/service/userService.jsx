@@ -2,10 +2,10 @@ import instance from "../utils/api";
 import { envCons } from "../utils/env";
 
 export const GetUserService = async (params) => {
+  console.log(params, "praram<================");
   try {
     const res = await instance.get(
-      `${envCons.baseUrl}/api/user/all-users`,
-      params
+      `${envCons.baseUrl}/api/user/all-members?page=${params}&limit=10`
     );
     const data = res.data;
     return data;
